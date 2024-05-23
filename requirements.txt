@@ -1,0 +1,5 @@
+Flask
+Werkzeug
+requests~=2.32.2
+intuit-oauth
+python-quickbooks
