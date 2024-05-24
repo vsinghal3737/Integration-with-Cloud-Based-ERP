@@ -1,11 +1,11 @@
 from flask import Flask, redirect, request, jsonify
 
-from src import config
-from src import auth
+import config
+import auth
 from intuitlib.enums import Scopes
 
-from src.bus_logic.accounts import AccountAPI
-from src.bus_logic.vendors import VendorsAPI
+from bus_logic.accounts import AccountAPI
+from bus_logic.vendors import VendorsAPI
 
 app = Flask(__name__)
 account_api = AccountAPI(config.BASE_URL)
@@ -109,5 +109,5 @@ def update_vendor(vendor_id):
 
 if __name__ == "__main__":
     print("Visit the following URL to authorize the application:")
-    print(auth.get_auth_url())
+    print(auth.get_auth_url([Scopes.ACCOUNTING]))
     app.run(port=5000)

@@ -8,7 +8,6 @@ class AccountAPI:
         self.base_url = base_url
 
     def get_all_accounts(self, access_token, realm_id):
-
         url = f"{self.base_url}/v3/company/{realm_id}/query"
         query = "SELECT * FROM Account"
         response = requests.get(url, headers=create_header(access_token), params={'query': query})
