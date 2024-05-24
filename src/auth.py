@@ -1,5 +1,4 @@
 from intuitlib.client import AuthClient
-from intuitlib.enums import Scopes
 import config
 
 # Create an instance of the AuthClient
@@ -26,6 +25,7 @@ def get_tokens(auth_code, realm_id):
     }
 
 
+# Function to refresh tokens
 def refresh_token(refresh_token_value):
     auth_client.refresh(refresh_token_value)
     return {
@@ -35,6 +35,7 @@ def refresh_token(refresh_token_value):
     }
 
 
+# Function to revoke tokens
 def revoke_token(token):
     response = auth_client.revoke(token)
     return response
