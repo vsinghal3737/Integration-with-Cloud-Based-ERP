@@ -36,6 +36,6 @@ def refresh_token(refresh_token_value):
 
 
 # Function to revoke tokens
-def revoke_token(token):
-    response = auth_client.revoke(token)
+def revoke_token():
+    response = auth_client.revoke()
     return response
