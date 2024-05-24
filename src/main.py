@@ -5,8 +5,13 @@ from src import auth
 from intuitlib.enums import Scopes
 
 from src.bus_logic.accounts import AccountAPI
+from src.bus_logic.vendors import VendorsAPI
+
 app = Flask(__name__)
 account_api = AccountAPI(config.BASE_URL)
+vendors_api = VendorsAPI(config.BASE_URL)
+
+
 @app.route('/authorize')
 def authorize():
     auth_url = auth.get_auth_url([Scopes.ACCOUNTING])
@@ -72,3 +77,37 @@ def update_account(account_id):
     updated_account = account_api.update_account(account_id, update_fields, access_token, realm_id)
     return jsonify(updated_account)
 
+
+# Vendor Endpoints
+@app.route('/vendors', methods=['GET'])
+def get_vendors():
+    access_token = request.args.get('access_token')
+    realm_id = request.args.get('realm_id')
+
+    vendors_data = vendors_api.get_all_vendors(access_token, realm_id)
+    return jsonify(vendors_data)
+
+
+@app.route('/vendors/<vendor_id>', methods=['GET'])
+def get_vendor_by_id(vendor_id):
+    access_token = request.args.get('access_token')
+    realm_id = request.args.get('realm_id')
+
+    vendor_data = vendors_api.get_vendor_by_id(vendor_id, access_token, realm_id)
+    return jsonify(vendor_data)
+
+
+@app.route('/vendors/<vendor_id>', methods=['POST'])
+def update_vendor(vendor_id):
+    access_token = request.json.get('access_token')
+    realm_id = request.json.get('realm_id')
+    update_fields = request.json.get('update_fields')
+
+    updated_vendor = vendors_api.update_vendor(vendor_id, update_fields, access_token, realm_id)
+    return jsonify(updated_vendor)
+
+
+if __name__ == "__main__":
+    print("Visit the following URL to authorize the application:")
+    print(auth.get_auth_url())
+    app.run(port=5000)
