@@ -1,3 +1,3 @@
-REDIRECT_URI = "https://developer.intuit.com/v2/OAuth2Playground/RedirectUrl"
+REDIRECT_URI = "http://localhost:5000/redirect"
 ENV_SAND = "sandbox"
 BASE_URL = 'https://sandbox-quickbooks.api.intuit.com'
