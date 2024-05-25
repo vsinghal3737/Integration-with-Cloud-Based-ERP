@@ -32,6 +32,7 @@
     - [4. Update Vendor and Account Data](#4-update-vendor-and-account-data)
       - [Update Vendor by ID](#update-vendor-by-id)
       - [Update Account by ID](#update-account-by-id)
+  - [References Attribution](#references-attribution)
 
 ## Task Description
 Develop an application to interact with a cloud-based ERP system (such as QuickBooks Online) by implementing authentication with QBO. The application should authenticate with the ERP's API, extract vendor and account data from the sandbox environment, and demonstrate updating a vendor record. The appearance of the user interface is irrelevant; it can be a simple command-line interface or any functional interface that fulfills the requirements.
@@ -303,4 +304,13 @@ Content-Type: application/json
   }
 }
 ```
+
+---
+
+## References Attribution
+- [Intuit Developer API Docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/)
+- [Intuit Developer Development Docs](https://developer.intuit.com/app/developer/qbo/docs/develop)
+- [Intuit Developer Authorization Docs](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization)
+- [Intuit Developer oauth-pythonclient library](https://github.com/intuit/oauth-pythonclient)
+- [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 ---
