@@ -9,7 +9,6 @@ from bus_logic.vendors import VendorsAPI
 from intuitlib.enums import Scopes
 
 app = Flask(__name__)
-logging.basicConfig(level=logging.DEBUG)
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 account_api = AccountAPI(config.BASE_URL)
@@ -19,11 +18,14 @@ tokens = {}
 
 @app.route('/authorize')
 def authorize():
+    logging.info('authorize(): Init')
     try:
         auth_url = auth.get_auth_url([Scopes.ACCOUNTING])
+        logging.info('authorize(): Fin with Success')
         logging.debug(f"Authorization URL: {auth_url}")
         return redirect(auth_url)
     except Exception as e:
+        logging.error('authorize(): Fin with Exception')
         logging.error(f"Error generating authorization URL: {e}")
         return str(e), 500
 
@@ -180,4 +182,6 @@ def _check_token():
 if __name__ == "__main__":
     print("Visit the following URL to authorize the application:")
     print(auth.get_auth_url([Scopes.ACCOUNTING]))
-    app.run(port=5000)
+    app.run(port=5000, debug=False)
+
+
