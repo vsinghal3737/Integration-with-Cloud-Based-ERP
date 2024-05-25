@@ -1,6 +1,6 @@
 import requests
 
-from src.bus_logic.utils import create_header, handle_error
+from bus_logic.utils import create_header, handle_error
 
 
 class AccountAPI:

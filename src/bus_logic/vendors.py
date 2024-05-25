@@ -1,6 +1,6 @@
 import requests
 
-from src.bus_logic.utils import handle_error, create_header
+from bus_logic.utils import handle_error, create_header
 
 
 class VendorsAPI:

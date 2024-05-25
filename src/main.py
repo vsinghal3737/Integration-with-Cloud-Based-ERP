@@ -179,9 +179,12 @@ def _check_token():
         abort(401, description="Tokens not available. Authorize first.")
 
 
-if __name__ == "__main__":
+def main():
     print("Visit the following URL to authorize the application:")
     print(auth.get_auth_url([Scopes.ACCOUNTING]))
     app.run(port=5000, debug=False)
 
+
+if __name__ == "__main__":
+    main()
 
