@@ -1,36 +1,70 @@
 # Integration with Cloud-Based ERP (QuickBooks Online)
 
+## Table of Contents
+- [Integration with Cloud-Based ERP (QuickBooks Online)](#integration-with-cloud-based-erp-quickbooks-online)
+  - [Table of Contents](#table-of-contents)
+  - [Task Description](#task-description)
+    - [Requirements](#requirements)
+      - [Authentication with QBO](#authentication-with-qbo)
+      - [Data Extraction](#data-extraction)
+      - [Data Update](#data-update)
+      - [Error Handling](#error-handling)
+      - [Documentation](#documentation)
+      - [Additional Notes](#additional-notes)
+  - [Thought Process and Implementation](#thought-process-and-implementation)
+    - [Authentication with QuickBooks Online (QBO)](#authentication-with-quickbooks-online-qbo)
+    - [Data Extraction](#data-extraction-1)
+    - [Data Update](#data-update-1)
+    - [Error Handling](#error-handling-1)
+    - [Documentation](#documentation-1)
+  - [Project Setup](#project-setup)
+      - [Prerequisites](#prerequisites)
+      - [Installation](#installation)
+  - [How to Run](#how-to-run)
+  - [API Documentation](#api-documentation)
+    - [1. Initiate Authorization](#1-initiate-authorization)
+    - [2. Authorize Application](#2-authorize-application)
+    - [3. Fetch Vendor and Account Data](#3-fetch-vendor-and-account-data)
+      - [Get All Vendors](#get-all-vendors)
+      - [Get Vendor by ID](#get-vendor-by-id)
+      - [Get All Accounts](#get-all-accounts)
+      - [Get Account by ID](#get-account-by-id)
+    - [4. Update Vendor and Account Data](#4-update-vendor-and-account-data)
+      - [Update Vendor by ID](#update-vendor-by-id)
+      - [Update Account by ID](#update-account-by-id)
+
 ## Task Description
 Develop an application to interact with a cloud-based ERP system (such as QuickBooks Online) by implementing authentication with QBO. The application should authenticate with the ERP's API, extract vendor and account data from the sandbox environment, and demonstrate updating a vendor record. The appearance of the user interface is irrelevant; it can be a simple command-line interface or any functional interface that fulfills the requirements.
 
 As a part of this assignment, you will need to create a developer account with QBO. Visit [QBO Developer Sandboxes](https://developer.intuit.com/app/developer/qbo/docs/develop/sandboxes) for more details.
 
-## Requirements
+### Requirements
 
-### Authentication with QBO
+#### Authentication with QBO
 - Implement authentication with QuickBooks Online to securely authenticate with the ERP's API.
 - Use appropriate authentication mechanisms provided by QBO's API.
 
-### Data Extraction
+#### Data Extraction
 - Retrieve sample vendor and account data from the sandbox environment of QuickBooks Online.
 - Extract relevant data entities including vendor information (such as name, contact details) and account details.
 
-### Data Update
+#### Data Update
 - Implement functionality to update a vendor record in QuickBooks Online.
 - Demonstrate updating at least one attribute of a vendor record (e.g., contact information).
 
-### Error Handling
+#### Error Handling
 - Implement error handling mechanisms to handle API errors, authentication failures, or other unexpected issues.
 - Provide informative error messages to aid in troubleshooting and debugging.
 
-### Documentation
+#### Documentation
 - Provide documentation with setup instructions, usage guidelines, and any additional notes.
 
-## Additional Notes
+#### Additional Notes
 - Integrate with a cloud-based ERP system.
 - OAuth2 principles, API interaction, and error handling.
 
 ---
+
 ## Thought Process and Implementation
 
 ### Authentication with QuickBooks Online (QBO)
@@ -68,14 +102,14 @@ To authenticate with QBO, I needed to implement OAuth 2.0, a secure and industry
 
 ## Project Setup
 
-### Prerequisites
+#### Prerequisites
 
 - Python 3.9+
 - Flask
 - Requests
 - Intuit Developer Account
 
-### Installation
+#### Installation
 
 1. **Clone the Repository**:
    ```bash
