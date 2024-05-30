@@ -18,6 +18,9 @@ tokens = {}
 
 @app.route('/authorize')
 def authorize():
+    """
+    Endpoint to initiate the authorization process.
+    """
     logging.info('authorize(): Init')
     try:
         auth_url = auth.get_auth_url([Scopes.ACCOUNTING])
@@ -32,6 +35,9 @@ def authorize():
 
 @app.route('/redirect')
 def oauth_redirect():
+    """
+    OAuth2 redirect endpoint to handle the authorization code and exchange it for tokens.
+    """
     logging.info('oauth_redirect(): Init')
     global tokens
     try:
@@ -39,7 +45,6 @@ def oauth_redirect():
         realm_id = request.args.get('realmId')
         state = request.args.get('state')
         logging.debug(f"Received auth_code: {auth_code}, realm_id: {realm_id}, state: {state}")
-
         if not auth_code:
             logging.error('oauth_redirect(): Fin with Exception')
             logging.error("Authorization code not found in callback URL.")
@@ -173,6 +178,11 @@ def update_vendor(vendor_id):
 
 
 def _check_token():
+    """
+    Checks if the tokens are available.
+
+    :raises abort: If tokens are not available.
+    """
     global tokens
     if not tokens:
         logging.error("Tokens not available. Authorize first.")
